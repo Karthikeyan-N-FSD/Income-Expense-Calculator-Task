@@ -27,7 +27,7 @@
             </div>
         </section>
 
-        <section id="entry-form" class="flex flex-col gap-4 mb-8">
+        <section id="entry-form" class="flex flex-col gap-4 mb-4">
             <h2 class="text-2xl font-bold">Add Entry</h2>
             <form id="entry-form" onsubmit="addEntry(); return false;" class="flex flex-col gap-4 mb-8">
                 <input class="p-2 border border-gray-300 rounded" type="text" id="description" placeholder="Description"
@@ -39,20 +39,24 @@
                     <option value="income">Income</option>
                 </select>
                 <input class="p-2 border border-gray-300 rounded" type="date" id="date" required>
-                <button class="py-2 rounded bg-green-500 text-white" type="submit" id="add-btn">Add Entry</button>
-                <button class="py-2 rounded bg-red-500 text-white" type="reset" id="reset-button"
+                <button class="py-2 rounded bg-green-500 text-lg font-semibold text-white" type="submit" id="add-btn">Add Entry</button>
+                <button class="py-2 rounded bg-red-500 text-lg font-semibold text-white" type="reset" id="reset-button"
                     onclick="clearFields()">Reset</button>
             </form>
         </section>
+        <hr class="border border-gray-700 mb-3">
 
         <section id="filters" class="text-center mb-8">
-            <h2 class="text-2xl font-bold">Filters</h2>
-            <label class="mx-4"><input type="radio" name="filter" value="all" checked onchange="fetchEntries()">
-                All</label>
-            <label class="mx-4"><input type="radio" name="filter" value="income" onchange="fetchEntries()">
-                Income</label>
-            <label class="mx-4"><input type="radio" name="filter" value="expense" onchange="fetchEntries()">
-                Expense</label>
+            <h2 class="text-2xl font-bold mb-1">Filters</h2>
+            <div class="flex justify-around">
+                <label class="mx-4 text-lg"><input type="radio" name="filter" value="all" checked
+                        onchange="fetchEntries()">
+                    All</label>
+                <label class="mx-4 text-lg"><input type="radio" name="filter" value="income" onchange="fetchEntries()">
+                    Income</label>
+                <label class="mx-4 text-lg"><input type="radio" name="filter" value="expense" onchange="fetchEntries()">
+                    Expense</label>
+            </div>
         </section>
 
         <section>
