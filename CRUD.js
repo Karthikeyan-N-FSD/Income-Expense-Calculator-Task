@@ -65,8 +65,8 @@ async function fetchEntries() {
             <td class="border border-gray-900">${data.description}</td>
             <td class="border border-gray-900">₹${data.amount}</td>
             <td class="border border-gray-900">${data.type}</td>
-             <td class="border border-gray-900">
-                <button class="px-1 py-0.5 bg-yellow-500 rounded " onclick="getEntryById(${data.id})">Edit</button>
+             <td class="border border-gray-900 text-center">
+                <button class="px-1 py-0.5 bg-yellow-500 rounded" onclick="getEntryById(${data.id})">Edit</button>
                 <button class="px-1 py-0.5 bg-red-500 rounded" onclick="deleteEntry(${data.id})">Delete</button>
            </td>`;
             entriesList.appendChild(tr);
