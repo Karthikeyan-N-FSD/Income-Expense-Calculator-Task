@@ -4,15 +4,15 @@ let currentId = null;
 
 async function addEntry() {
     try {
-        var description = document.getElementById("description").value;
-        var amount = document.getElementById("amount").value;
-        var type = document.getElementById("type").value;
-        var date = document.getElementById("date").value;
+        let description = document.getElementById("description").value;
+        let amount = document.getElementById("amount").value;
+        let type = document.getElementById("type").value;
+        let date = document.getElementById("date").value;
         if (!description || !amount || !type || !date) {
             alert("Please fill all the fields");
             return;
         }
-        var entry = {
+        let entry = {
             description: description,
             amount: parseInt(amount),
             type: type,
@@ -42,16 +42,16 @@ async function addEntry() {
 
 async function fetchEntries() {
     try {
-        var response = await fetch(apiURL);
-        var datas = await response.json();
-        var fliterDatas = datas;
+        let response = await fetch(apiURL);
+        let datas = await response.json();
+        let fliterDatas = datas;
         datas.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-        var filter = document.querySelector('input[name="filter"]:checked').value;
+        let filter = document.querySelector('input[name="filter"]:checked').value;
         if (filter !== 'all') {
             fliterDatas = datas.filter(data => data.type === filter);
         }
-        var entriesList = document.getElementById("entries-list");
+        let entriesList = document.getElementById("entries-list");
         if (fliterDatas.length == 0) {
             entriesList.innerHTML = "No transaction avilable";
             return;
@@ -97,8 +97,8 @@ function calculation(datas) {
 
 async function getEntryById(id) {
     try {
-        var resp = await fetch(`${apiURL}/${id}`);
-        var data = await resp.json();
+        let resp = await fetch(`${apiURL}/${id}`);
+        let data = await resp.json();
         document.getElementById("description").value = data.description;
         document.getElementById("amount").value = data.amount;
         document.getElementById("type").value = data.type;
@@ -129,7 +129,7 @@ async function editEntry(id, updatedEntry) {
 }
 async function deleteEntry(id) {
     try {
-        var resp = confirm("Are you sure do you want to delete this transaction?");
+        let resp = confirm("Are you sure do you want to delete this transaction?");
         if (resp) {
             await fetch(`${apiURL}/${id}`, { method: "DELETE" });
             fetchEntries();
